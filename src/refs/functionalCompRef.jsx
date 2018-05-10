@@ -1,22 +1,14 @@
 import React from "react";
 import Wrapper from "../common/Wrapper";
+import withLogger from "./logger";
+import Input from "./input";
 
-function functionalCompRef(props) {
-  const focusInputText = React.createRef();
+const functionalCompRef = props => {
+  // const handleClick = () => {
+  //     textInputRef.current.focus();
+  //   };
+  //const textInputRef = React.createRef();
+  return <Input {...props} buttonText="Focus functionalCompRef" />;
+};
 
-  const handleClick = () => {
-    focusInputText.current.focus();
-  };
-
-  return (
-    <Wrapper>
-      <input type="text" ref={focusInputText} />,
-      <input
-        type="button"
-        onClick={handleClick}
-        value="Focus Functional Component's Click"
-      />
-    </Wrapper>
-  );
-}
-export default functionalCompRef;
+export default withLogger(functionalCompRef);

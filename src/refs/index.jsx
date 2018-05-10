@@ -6,17 +6,29 @@ import ForwardedRef from "./forwardedRef";
 class Refs extends Component {
   constructor(props) {
     super(props);
-    // this.textInputRef = React.createRef();
+    this.state = { inputValue: "" };
+    this.textInputRef = React.createRef();
   }
   componentDidMount() {
-    //this.textInputRef.current.focusTextInput();
+    this.textInputRef.current.focusTextInput();
   }
+  handleTextChange = event => {
+    this.setState({ inputValue: event.target.value });
+  };
+
   render() {
     return (
       <div className="ref">
-        <CreateAndAccess />
-        <FunctionalCompRef />
-        <ForwardedRef />
+        <CreateAndAccess
+          inputValue={this.state.inputValue}
+          textChange={this.handleTextChange}
+        />
+        <FunctionalCompRef
+          inputValue={this.state.inputValue}
+          textChange={this.handleTextChange}
+        />
+        <ForwardedRef ref={this.textInputRef} />
+        <div>{this.state.inputValue}</div>
       </div>
     );
   }

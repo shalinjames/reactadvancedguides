@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withMainComp from "./refHOC";
+import withLogger from "./logger";
 import Wrapper from "../common/Wrapper";
 
 class CreateAndAccessRefs extends Component {
@@ -26,4 +26,4 @@ class CreateAndAccessRefs extends Component {
   }
 }
 
-export default withMainComp(CreateAndAccessRefs);
+export default withLogger(CreateAndAccessRefs);

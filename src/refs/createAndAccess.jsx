@@ -1,28 +1,11 @@
 import React, { Component } from "react";
-import WithMainComp from "./refHOC";
+import withLogger from "./logger";
+import Input from "./input";
 
-const Wrapper = ({ children }) => children;
 class CreateAndAccessRefs extends Component {
-  constructor(props) {
-    super(props);
-    this.textInputRef = React.createRef();
-    this.focusTextInput = this.focusTextInput.bind(this);
-  }
-  focusTextInput = () => {
-    this.textInputRef.current.focus();
-  };
   render() {
-    return (
-      <Wrapper>
-        <input type="text" ref={this.textInputRef} />,
-        <input
-          type="button"
-          value="Focus Text "
-          onClick={this.focusTextInput}
-        />
-      </Wrapper>
-    );
+    return <Input {...this.props} buttonText="Focus Create And Access Refs" />;
   }
 }
 
-export default CreateAndAccessRefs;
+export default withLogger(CreateAndAccessRefs);
