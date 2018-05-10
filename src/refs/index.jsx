@@ -1,23 +1,25 @@
 import React, { Component } from "react";
+import CreateAndAccess from "./createAndAccess";
+import FunctionalCompRef from "./functionalCompRef";
+import ForwardedRef from "./forwardedRef";
 
 class Refs extends Component {
   constructor(props) {
     super(props);
-    this.textInputRef = React.createRef();
-    this.focusTextInput = this.focusTextInput.bind(this);
-  }
-  focusTextInput = () => {
-    this.textInputRef.current.focus();
-  };
-  render() {
-    return [
-      <input type="text" ref={this.textInputRef} />,
-      <input type="button" value="Focus Text " onClick={this.focusTextInput} />
-    ];
+    // this.textInputRef = React.createRef();
   }
   componentDidMount() {
-    this.textInputRef.current.focus();
+    //this.textInputRef.current.focusTextInput();
+  }
+  render() {
+    return (
+      <div className="ref">
+        <CreateAndAccess />
+        <FunctionalCompRef />
+        <ForwardedRef />
+      </div>
+    );
   }
 }
-
+//ref={this.textInputRef}
 export default Refs;
