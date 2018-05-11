@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CreateAndAccess from "./createAndAccess";
 import FunctionalCompRef from "./functionalCompRef";
 import ForwardedRef from "./forwardedRef";
+import PassingElemRef from "./passingElementInRef";
+import Wrapper from "../common/Wrapper";
 
 class Refs extends Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class Refs extends Component {
 
   render() {
     return (
-      <div className="ref">
+      <Wrapper>
         <CreateAndAccess
           inputValue={this.state.inputValue}
           textChange={this.handleTextChange}
@@ -28,8 +30,10 @@ class Refs extends Component {
           textChange={this.handleTextChange}
         />
         <ForwardedRef ref={this.textInputRef} />
+        <PassingElemRef />
+        <br />
         <div>{this.state.inputValue}</div>
-      </div>
+      </Wrapper>
     );
   }
 }

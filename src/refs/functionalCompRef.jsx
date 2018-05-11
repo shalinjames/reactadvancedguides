@@ -4,10 +4,6 @@ import withLogger from "./logger";
 import Input from "./input";
 
 const functionalCompRef = props => {
-  // const handleClick = () => {
-  //     textInputRef.current.focus();
-  //   };
-  //const textInputRef = React.createRef();
   return <Input {...props} buttonText="Focus functionalCompRef" />;
 };
 
